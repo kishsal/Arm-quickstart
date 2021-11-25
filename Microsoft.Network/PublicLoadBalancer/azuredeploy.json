@@ -406,9 +406,9 @@
     }
   ],
   "outputs": {
-    "hostname": {
+    "publicIp": {
       "type": "string",
-      "value": "[resourceId('Microsoft.Network/publicIPAddresses', variables('lbPublicIpAddressName')).properties.ipAddress]"
+      "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses', variables('lbPublicIpAddressName'))).properties.ipAddress]"
     }
   }
 }
