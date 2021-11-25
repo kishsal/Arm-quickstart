@@ -94,6 +94,14 @@
       "metadata": {
         "description": "Name of the virtual machine."
       }
+    },
+    "resourceTags": {
+      "type": "object",
+      "defaultValue": {
+        "Environment": "Dev",
+        "Project": "[parameters('projectName')]",
+        "Location": "[parameters('location')]"
+      }
     }
   },
   "functions": [],
@@ -104,12 +112,7 @@
     "subnetName": "Subnet",
     "subnetPrefix": "10.0.0.0/24",
     "virtualNetworkName": "MyVNET",
-    "networkSecurityGroupName": "default-NSG",
-    "resourceTags": {
-      "Environment": "Dev",
-      "Project": "[parameters('projectName')]",
-      "Location": "[parameters('location')]"
-    }
+    "networkSecurityGroupName": "default-NSG"
   },
   "resources": [
     {
@@ -117,7 +120,7 @@
       "apiVersion": "2021-04-01",
       "name": "[variables('storageAccountName')]",
       "location": "[parameters('location')]",
-      "tags": "[variables('resourceTags')]",
+      "tags": "[parameters('resourceTags')]",
       "sku": {
         "name": "Standard_LRS"
       },
@@ -128,7 +131,7 @@
       "apiVersion": "2021-02-01",
       "name": "[parameters('publicIpName')]",
       "location": "[parameters('location')]",
-      "tags": "[variables('resourceTags')]",
+      "tags": "[parameters('resourceTags')]",
       "sku": {
         "name": "[parameters('publicIpSku')]"
       },
@@ -144,7 +147,7 @@
       "apiVersion": "2021-02-01",
       "name": "[variables('networkSecurityGroupName')]",
       "location": "[parameters('location')]",
-      "tags": "[variables('resourceTags')]",
+      "tags": "[parameters('resourceTags')]",
       "properties": {
         "securityRules": [
           {
@@ -168,7 +171,7 @@
       "apiVersion": "2021-02-01",
       "name": "[variables('virtualNetworkName')]",
       "location": "[parameters('location')]",
-      "tags": "[variables('resourceTags')]",
+      "tags": "[parameters('resourceTags')]",
       "properties": {
         "addressSpace": {
           "addressPrefixes": ["[variables('addressPrefix')]"]
@@ -194,7 +197,7 @@
       "apiVersion": "2021-02-01",
       "name": "[variables('nicName')]",
       "location": "[parameters('location')]",
-      "tags": "[variables('resourceTags')]",
+      "tags": "[parameters('resourceTags')]",
       "properties": {
         "ipConfigurations": [
           {
@@ -221,7 +224,7 @@
       "apiVersion": "2021-03-01",
       "name": "[parameters('vmName')]",
       "location": "[parameters('location')]",
-      "tags": "[variables('resourceTags')]",
+      "tags": "[parameters('resourceTags')]",
       "properties": {
         "hardwareProfile": {
           "vmSize": "[parameters('vmSize')]"

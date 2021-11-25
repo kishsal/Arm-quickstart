@@ -89,6 +89,14 @@
       "metadata": {
         "description": "Name of the Network Security Group"
       }
+    },
+    "resourceTags": {
+      "type": "object",
+      "defaultValue": {
+        "Environment": "Dev",
+        "Project": "[parameters('projectName')]",
+        "Location": "[parameters('location')]"
+      }
     }
   },
   "functions": [],
@@ -108,11 +116,6 @@
           }
         ]
       }
-    },
-    "resourceTags": {
-      "Environment": "Dev",
-      "Project": "[parameters('projectName')]",
-      "Location": "[parameters('location')]"
     }
   },
   "resources": [
@@ -121,7 +124,7 @@
       "apiVersion": "2020-06-01",
       "name": "[variables('networkInterfaceName')]",
       "location": "[parameters('location')]",
-      "tags": "[variables('resourceTags')]",
+      "tags": "[parameters('resourceTags')]",
       "properties": {
         "ipConfigurations": [
           {
@@ -152,7 +155,7 @@
       "apiVersion": "2020-06-01",
       "name": "[parameters('networkSecurityGroupName')]",
       "location": "[parameters('location')]",
-      "tags": "[variables('resourceTags')]",
+      "tags": "[parameters('resourceTags')]",
       "properties": {
         "securityRules": [
           {
@@ -176,7 +179,7 @@
       "apiVersion": "2020-06-01",
       "name": "[parameters('virtualNetworkName')]",
       "location": "[parameters('location')]",
-      "tags": "[variables('resourceTags')]",
+      "tags": "[parameters('resourceTags')]",
       "properties": {
         "addressSpace": {
           "addressPrefixes": ["[variables('addressPrefix')]"]
@@ -187,7 +190,7 @@
       "type": "Microsoft.Network/virtualNetworks/subnets",
       "apiVersion": "2020-06-01",
       "name": "[format('{0}/{1}', parameters('virtualNetworkName'), parameters('subnetName'))]",
-      "tags": "[variables('resourceTags')]",
+      "tags": "[parameters('resourceTags')]",
       "properties": {
         "addressPrefix": "[variables('subnetAddressPrefix')]",
         "privateEndpointNetworkPolicies": "Enabled",
@@ -202,7 +205,7 @@
       "apiVersion": "2020-06-01",
       "name": "[variables('publicIPAddressName')]",
       "location": "[parameters('location')]",
-      "tags": "[variables('resourceTags')]",
+      "tags": "[parameters('resourceTags')]",
       "sku": {
         "name": "Basic"
       },
@@ -220,7 +223,7 @@
       "apiVersion": "2020-06-01",
       "name": "[parameters('vmName')]",
       "location": "[parameters('location')]",
-      "tags": "[variables('resourceTags')]",
+      "tags": "[parameters('resourceTags')]",
       "properties": {
         "hardwareProfile": {
           "vmSize": "[parameters('vmSize')]"
