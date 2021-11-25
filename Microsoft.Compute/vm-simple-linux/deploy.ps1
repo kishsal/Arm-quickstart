@@ -8,6 +8,6 @@ $resourceGroupName = "${projectName}-rg"
 $templateUri = "https://raw.githubusercontent.com/kishsal/Arm-quickstart/main/Microsoft.Compute/vm-simple-linux/azuredeploy.json"
 
 New-AzResourceGroup -Name $resourceGroupName -Location $location
-New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -location $location -dnsLabelPrefix $dnsLabelPrefix -adminUsername $adminUsername -adminPassword $adminPassword -Verbose
+New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -projectName $projectName -location $location -dnsLabelPrefix $dnsLabelPrefix -adminUsername $adminUsername -adminPassword $adminPassword -Verbose
 
 Write-Host "Press [ENTER] to continue."
