@@ -73,7 +73,8 @@
       "tags": "[parameters('resourceTags')]",
       "copy": {
         "name": "networkInterfaceCopy",
-        "count": 3
+        "count": 3,
+        "mode": "serial"
       },
       "dependsOn": [
         "[resourceId('Microsoft.Network/virtualNetworks', variables('vNetName'))]",
@@ -114,7 +115,8 @@
       "tags": "[parameters('resourceTags')]",
       "copy": {
         "name": "extensionCopy",
-        "count": 3
+        "count": 3,
+        "mode": "serial"
       },
       "dependsOn": ["vmCopy"],
       "properties": {
@@ -136,7 +138,8 @@
       "zones": ["[copyIndex(1)]"],
       "copy": {
         "name": "vmCopy",
-        "count": 3
+        "count": 3,
+        "mode": "serial"
       },
       "dependsOn": ["networkInterfaceCopy"],
       "properties": {
