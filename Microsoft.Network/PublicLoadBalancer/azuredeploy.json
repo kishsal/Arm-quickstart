@@ -394,14 +394,9 @@
         }
     ],
     "outputs": {
-        "publicIPAddress": {
+        "hostname": {
             "type": "string",
-            "value" : "[reference(variables('lbPublicIpAddressName')).properties.ipAddress]"
-        },
-        "publicIPAddressOutbound": {
-            "type": "string",
-            "value": "[reference(variables('lbPublicIPAddressNameOutbound')).properties.ipAddress]"
-        }
-
+            "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses', variables('lbPublicIpAddressName'))).dnsSettings.fqdn]"
+            }
     }
 }
