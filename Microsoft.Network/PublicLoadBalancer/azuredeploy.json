@@ -396,7 +396,7 @@
     "outputs": {
         "hostname": {
             "type": "string",
-            "value": "[resourceId('Microsoft.Network/publicIPAddresses', variables('lbPublicIpAddressName')).dnsSettings.fqdn]"
+            "value": "[resourceId('Microsoft.Network/publicIPAddresses', variables('lbPublicIpAddressName')).properties.ipAddress]"
             }
     }
 }
