@@ -110,12 +110,9 @@
       }
     },
     "resourceTags": {
-      "type": "object",
-      "defaultValue": {
-        "Environment": "Dev",
-        "Project": "[parameters('projectName')]",
-        "Location": "[parameters('location')]"
-      }
+      "Environment": "Dev",
+      "Project": "[parameters('projectName')]",
+      "Location": "[parameters('location')]"
     }
   },
   "resources": [

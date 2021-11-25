@@ -56,12 +56,9 @@
     "bastionPublicIPAddressName": "[concat(parameters('projectName'),'-bastionPublicIP')]",
     "vmStorageAccountType": "Premium_LRS",
     "resourceTags": {
-      "type": "object",
-      "defaultValue": {
-        "Environment": "Dev",
-        "Project": "[parameters('projectName')]",
-        "Location": "[parameters('location')]"
-      }
+      "Environment": "Dev",
+      "Project": "[parameters('projectName')]",
+      "Location": "[parameters('location')]"
     }
   },
   "resources": [

@@ -22,6 +22,12 @@
         "description": "Unique DNS Name for the Public IP used to access the Virtual Machine."
       }
     },
+    "projectName": {
+      "type": "string",
+      "metadata": {
+        "description": "Specifies a project name that is used for generating resource names."
+      }
+    },
     "publicIpName": {
       "type": "string",
       "defaultValue": "myPublicIP",
@@ -100,12 +106,9 @@
     "virtualNetworkName": "MyVNET",
     "networkSecurityGroupName": "default-NSG",
     "resourceTags": {
-      "type": "object",
-      "defaultValue": {
-        "Environment": "Dev",
-        "Project": "[parameters('projectName')]",
-        "Location": "[parameters('location')]"
-      }
+      "Environment": "Dev",
+      "Project": "[parameters('projectName')]",
+      "Location": "[parameters('location')]"
     }
   },
   "resources": [
