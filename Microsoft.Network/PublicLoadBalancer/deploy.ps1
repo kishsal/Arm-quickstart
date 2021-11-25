@@ -7,6 +7,6 @@ $resourceGroupName = "${projectName}-rg"
 $templateUri = "https://raw.githubusercontent.com/kishsal/Arm-quickstart/main/Microsoft.Network/PublicLoadBalancer/azuredeploy.json"
 
 New-AzResourceGroup -Name $resourceGroupName -Location $location
-New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -projectName $projectName -location $location -adminUsername $adminUsername -adminPassword $adminPassword
+New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -projectName $projectName -location $location -adminUsername $adminUsername -adminPassword $adminPassword -Verbose
 
 Write-Host "Press [ENTER] to continue."
