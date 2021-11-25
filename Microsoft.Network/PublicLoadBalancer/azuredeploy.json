@@ -55,11 +55,13 @@
     "vNetBastionSubnetAddressPrefix": "10.0.1.0/24",
     "bastionPublicIPAddressName": "[concat(parameters('projectName'),'-bastionPublicIP')]",
     "vmStorageAccountType": "Premium_LRS",
-    "resourceTags": {
-      "Environment": "Dev",
-      "Project": "[parameters('projectName')]",
-      "Location": "[parameters('location')]"
-    }
+    "resourceTags": [
+      {
+        "Environment": "Dev",
+        "Project": "[parameters('projectName')]",
+        "Location": "[parameters('location')]"
+      }
+    ]
   },
   "resources": [
     {
