@@ -409,7 +409,7 @@
   "outputs": {
     "publicIp": {
       "type": "string",
-      "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses', variables('lbPublicIpAddressName'))).properties.ipAddress]"
+      "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses', variables('lbPublicIpAddressName'))).IpAddress]"
     }
   }
 }
