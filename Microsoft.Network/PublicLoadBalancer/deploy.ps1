@@ -4,7 +4,7 @@ $adminUserName = Read-Host -Prompt "Enter the virtual machine administrator acco
 $adminPassword = Read-Host -Prompt "Enter the virtual machine administrator password" -AsSecureString
 
 $resourceGroupName = "${projectName}-rg"
-$templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.network/load-balancer-standard-create/azuredeploy.json"
+$templateUri = "https://raw.githubusercontent.com/kishsal/Arm-quickstart/main/Microsoft.Network/PublicLoadBalancer/azuredeploy.json"
 
 New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -projectName $projectName -location $location -adminUsername $adminUsername -adminPassword $adminPassword
